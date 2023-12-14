@@ -27,21 +27,28 @@ public class FleetOperator {
         vehicles.add(vehicle);
     }
 
-    public String getTotalVehicles() {
-        int cars = 0;
-        int motorcycles = 0;
-        String separatedVehicles = "";
+    public int getTotalVehicles(String vehicleType) throws TotalVehiclesNotFoundException {
+        int count = 0;
 
-        for (Vehicle vehicle : vehicles) {
-            if (vehicle instanceof Car) {
-                cars++;
-            } else {
-                motorcycles++;
+        if ("Auto".equalsIgnoreCase(vehicleType)) {
+            for (Vehicle vehicle : vehicles) {
+                if (vehicle instanceof Car) {
+                    count++;
+                }
+            }
+        } else if ("Moto".equalsIgnoreCase(vehicleType)) {
+            for (Vehicle vehicle : vehicles) {
+                if (vehicle instanceof Motorcycle) {
+                    count++;
+                }
             }
         }
 
-        return separatedVehicles = "Macchine: " + cars + '\n' +
-                "Moto: " + motorcycles;
+        if (count > 0) {
+            return count;
+        } else {
+            throw new TotalVehiclesNotFoundException("Nessun veicolo del tipo specificato");
+        }
     }
 
     public Vehicle findVehicle(String plateNumber) throws VehicleNotFoundException {
@@ -50,6 +57,6 @@ public class FleetOperator {
                 return vehicle;
             }
         }
-        throw new VehicleNotFoundException("Veicolo non trovato per la targa: " + plateNumber);
+        throw new VehicleNotFoundException("Veicolo con targa " + plateNumber + " non trovato");
     }
 }

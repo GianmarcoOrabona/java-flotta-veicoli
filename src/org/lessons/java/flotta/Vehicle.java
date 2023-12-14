@@ -1,18 +1,17 @@
 package org.lessons.java.flotta;
 
-import java.time.LocalDate;
-import java.util.Random;
+
 
 public abstract class Vehicle {
     // ATTRIBUTI
 
     private String plateNumber;
 
-    private LocalDate registrationDate;
+    private int registrationDate;
 
     // COSTRUTTORI
 
-    public Vehicle(String plateNumber, LocalDate registrationDate) {
+    public Vehicle(String plateNumber, int registrationDate) {
         this.plateNumber = plateNumber;
         this.registrationDate = registrationDate;
     }
@@ -27,11 +26,11 @@ public abstract class Vehicle {
         this.plateNumber = plateNumber;
     }
 
-    public LocalDate getRegistrationDate() {
+    public int getRegistrationDate() {
         return registrationDate;
     }
 
-    public void setRegistrationDate(LocalDate registrationDate) {
+    public void setRegistrationDate(int registrationDate) {
         this.registrationDate = registrationDate;
     }
 
@@ -41,9 +40,7 @@ public abstract class Vehicle {
 
     @Override
     public String toString() {
-        return "Vehicle{" +
-                "plateNumber='" + plateNumber + '\'' +
-                ", registrationDate=" + registrationDate +
-                '}';
+        return "Targa: " + plateNumber + '\n' +
+                "Anno immatricolazione: " + registrationDate;
     }
 }

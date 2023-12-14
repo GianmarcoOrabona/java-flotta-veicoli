@@ -1,6 +1,5 @@
 package org.lessons.java.flotta;
 
-import java.time.LocalDate;
 
 public class Motorcycle extends Vehicle {
     // ATTRIBUTI
@@ -9,7 +8,7 @@ public class Motorcycle extends Vehicle {
 
     // COSTRUTTORI
 
-    public Motorcycle(String plateNumber, LocalDate registrationDate, boolean stand) {
+    public Motorcycle(String plateNumber, int registrationDate, boolean stand) {
         super(plateNumber, registrationDate);
         this.stand = stand;
     }
@@ -17,10 +16,11 @@ public class Motorcycle extends Vehicle {
     // METODI
 
     public boolean hasStand() {
-        if (stand) {
-            return true;
-        } else {
-            return false;
-        }
+        return stand;
+    }
+
+    public String toString() {
+        String standString = stand ? "si" : "no";
+        return "Moto: " + '\n' + super.toString() + '\n' + "Cavalletto: " + standString;
     }
 }
