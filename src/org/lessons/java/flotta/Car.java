@@ -9,8 +9,10 @@ public class Car extends Vehicle {
 
     // ATTRIBUTI
 
-    public Car(String plateNumber, LocalDate registrationDate, int numberOfDoors) {
-        super(plateNumber, registrationDate);
+
+    public Car(LocalDate registrationDate, int numberOfDoors) {
+        super(registrationDate);
         this.numberOfDoors = numberOfDoors;
     }
+
 }

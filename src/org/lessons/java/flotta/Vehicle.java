@@ -1,6 +1,7 @@
 package org.lessons.java.flotta;
 
 import java.time.LocalDate;
+import java.util.Random;
 
 public abstract class Vehicle {
     // ATTRIBUTI
@@ -11,8 +12,8 @@ public abstract class Vehicle {
 
     // COSTRUTTORI
 
-    public Vehicle(String plateNumber, LocalDate registrationDate) {
-        this.plateNumber = plateNumber;
+    public Vehicle(LocalDate registrationDate) {
+        plateGenerator();
         this.registrationDate = registrationDate;
     }
 
@@ -27,4 +28,16 @@ public abstract class Vehicle {
     }
 
     // METODI
+
+    public void plateGenerator() {
+        Random random = new Random();
+        int randomNum = random.nextInt(900) + 100;
+
+        char firstChar = (char) ('A' + random.nextInt(26));
+        char secondChar = (char) ('A' + random.nextInt(26));
+        char thirdChar = (char) ('A' + random.nextInt(26));
+        char fourthChar = (char) ('A' + random.nextInt(26));
+
+        this.plateNumber = "" + firstChar + secondChar + randomNum + thirdChar + fourthChar;
+    }
 }
