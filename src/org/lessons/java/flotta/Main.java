@@ -21,15 +21,22 @@ public class Main {
         Motorcycle kawasaki = new Motorcycle("GH518FG", 20022, true);
         fleet.addVehicle(kawasaki);
 
+        Motorcycle aprilia = new Motorcycle("FS495BG", 20023, false);
+        fleet.addVehicle(aprilia);
+
 
         try{
-            System.out.println(fleet.findVehicle("GH518FG"));
+            System.out.print("Inserisci una targa per trovare un veicolo:");
+            String plate = scanner.nextLine();
+            System.out.println(fleet.findVehicle(plate));
         } catch(VehicleNotFoundException e) {
             System.out.println(e.getMessage());
         }
 
         try{
-            System.out.println(fleet.getTotalVehicles("Moto"));
+            System.out.print("Inserisci Moto o Auto per avere il numero di veicoli:");
+            String type = scanner.nextLine();
+            System.out.println("Numero di " + type + ":" + " " + fleet.getTotalVehicles(type));
         } catch(TotalVehiclesNotFoundException e) {
             System.out.println(e.getMessage());
         }
