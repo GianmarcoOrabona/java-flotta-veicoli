@@ -9,8 +9,18 @@ public class Motorcycle extends Vehicle {
 
     // COSTRUTTORI
 
-    public Motorcycle(LocalDate registrationDate, boolean stand) {
-        super(registrationDate);
+    public Motorcycle(String plateNumber, LocalDate registrationDate, boolean stand) {
+        super(plateNumber, registrationDate);
         this.stand = stand;
+    }
+
+    // METODI
+
+    public boolean hasStand() {
+        if (stand) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

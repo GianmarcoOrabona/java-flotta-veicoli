@@ -12,8 +12,8 @@ public abstract class Vehicle {
 
     // COSTRUTTORI
 
-    public Vehicle(LocalDate registrationDate) {
-        plateGenerator();
+    public Vehicle(String plateNumber, LocalDate registrationDate) {
+        this.plateNumber = plateNumber;
         this.registrationDate = registrationDate;
     }
 
@@ -23,21 +23,27 @@ public abstract class Vehicle {
         return plateNumber;
     }
 
+    public void setPlateNumber(String plateNumber) {
+        this.plateNumber = plateNumber;
+    }
+
     public LocalDate getRegistrationDate() {
         return registrationDate;
     }
 
+    public void setRegistrationDate(LocalDate registrationDate) {
+        this.registrationDate = registrationDate;
+    }
+
+
     // METODI
 
-    public void plateGenerator() {
-        Random random = new Random();
-        int randomNum = random.nextInt(900) + 100;
 
-        char firstChar = (char) ('A' + random.nextInt(26));
-        char secondChar = (char) ('A' + random.nextInt(26));
-        char thirdChar = (char) ('A' + random.nextInt(26));
-        char fourthChar = (char) ('A' + random.nextInt(26));
-
-        this.plateNumber = "" + firstChar + secondChar + randomNum + thirdChar + fourthChar;
+    @Override
+    public String toString() {
+        return "Vehicle{" +
+                "plateNumber='" + plateNumber + '\'' +
+                ", registrationDate=" + registrationDate +
+                '}';
     }
 }
